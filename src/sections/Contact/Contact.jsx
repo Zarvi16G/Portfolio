@@ -6,11 +6,14 @@ import styles from "./ContactStyles.module.css";
 function Contact() {
   const form = useRef();
 
+  const service_ID = import.meta.env.VITE_SERVICE_ID;
+  const template_ID = import.meta.env.VITE_TEMPLATE_ID;
+
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_4z0jkua", "template_447mjuu", form.current, {
+      .sendForm(service_ID, template_ID, form.current, {
         publicKey: "z7322nu9KbeK2DT-d",
       })
       .then(
